@@ -1,6 +1,7 @@
 <p style="color:green;">Enter integer Points to redeem reward</p>
-<form action="#" id="redeem-reward" method="POST">
-    <input type="text" placeholder="Points" name="redeem-reward-points"/>
+<form id="redeem-reward" method="POST" action="/checkout/cart">
+    <span class="int-error" id="int-error" style="display: none;">Please input integer only</span>
+    <input type="text" placeholder="Points" name="redeem-reward-points" id="int-points" />
 </form>
 <button type="button" class="redeem-reward">
     <span>Apply Redeem Points</span>
@@ -11,7 +12,13 @@
         'jquery'
     ], function($) {
         $(document).on('click', '.redeem-reward', function() {
-            $('#redeem-reward').submit();
+            var inputString = $("#int-points").val();
+            if (isNaN(inputString/1))
+                $("#int-error").css({"display": "block","color":"red"});
+            else{
+                $("#int-error").css({"display": "none"});
+                $('#redeem-reward').submit();
+                }
         })
     });
 </script>
