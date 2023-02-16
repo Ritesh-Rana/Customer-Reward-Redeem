@@ -1,2 +1,17 @@
 <p style="color:green;">Enter integer Points to redeem reward</p>
-<input type="text" placeholder="Points"/>
+<form action="#" id="redeem-reward" method="POST">
+    <input type="text" placeholder="Points" name="redeem-reward-points"/>
+</form>
+<button type="button" class="redeem-reward">
+    <span>Apply Redeem Points</span>
+</button>
+
+<script type="text/javascript">
+    require([
+        'jquery'
+    ], function($) {
+        $(document).on('click', '.redeem-reward', function() {
+            $('#redeem-reward').submit();
+        })
+    });
+</script>
