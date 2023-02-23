@@ -21,7 +21,7 @@ class Index extends Action
         $logger->addWriter($writer);
 
         $url = $this->resultRedirectFactory->create();
-        $url->setUrl('/checkout#payment');
+        $url->setUrl('/checkout#shipping');
         $logger->info('redirected');
         return $url;
     }
